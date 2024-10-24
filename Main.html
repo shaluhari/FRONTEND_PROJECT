@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Interior Design</title>
+<link rel="icon" type="image/x.icon" href="icon.png" style="border-radius:30px;">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="logo">Nestory</div>
+<ul class="nav-links">
+<li><a href="#">Home</a></li>
+<li><a href="#about">About Us</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact Us</a></li>
+</ul>
+</nav>
+
+<div class="slideshow-container">
+<div class="slides">
+<img src="i1.jpg" alt="Elegant Living Room">
+<div class="text">Elegant Living Room</div>
+</div>
+
+<div class="slides">
+<img src="i2.jpg" alt="Modern Kitchen Design">
+<div class="text">Modern Kitchen Design</div>
+</div>
+
+<div class="slides">
+<img src="i3.jpg" alt="Luxury Bedroom">
+<div class="text">Luxury Bedroom</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<section id="about" class="about-us">
+<h2>About Us</h2>
+<p>We are a premium interior design company specializing in creating personalized and innovative spaces. With a team of experienced designers, we bring our clients' visions to life, combining modern aesthetics with functional design.</p>
+<p>Our mission is to enhance the beauty and functionality of your spaces, whether residential or commercial, while ensuring every project reflects your unique style.</p>
+</section>
+
+<section id="services" class="services">
+<h2>Our Services</h2>
+<div class="service-box">
+
+<div class="service-item">
+<img src="ic1.jpg" alt="Residential Design">
+<h3>Residential Design</h3>
+<p>We create stunning living spaces that reflect your lifestyle.</p>
+</div>
+
+<div class="service-item">
+<img src="ic2.jpg" alt="Commercial Design">
+<h3>Commercial Design</h3>
+<p>Our commercial designs blend aesthetics with functionality.</p>
+</div>
+
+<div class="service-item">
+<img src="ic3.jpg" alt="Interior Renovation">
+<h3>Interior Renovation</h3>
+<p>Transform your space with our expert renovation services.</p>
+</div>
+</div>
+</section>
+
+<section id="projects" class="projects">
+<h2>Our Projects</h2>
+<p>From luxurious homes to modern office spaces, our portfolio showcases a range of projects that embody sophistication, creativity, and attention to detail. Explore our gallery to see the transformation of spaces designed to inspire.</p>
+<div class="project-box">
+
+<div class="project-item">
+<img src="p1.jpg" alt="Luxury Apartment">
+<h3>Luxury Apartment</h3>
+<p>A modern apartment designed with elegance and comfort.</p>
+</div>
+
+<div class="project-item">
+<img src="p2.jpg" alt="Cozy Cottage">
+<h3>Cozy Cottage</h3>
+<p>A beautiful cottage with a blend of rustic charm and modern amenities.</p>
+</div>
+
+<div class="project-item">
+<img src="p3.jpg" alt="Office Space">
+<h3>Office Space</h3>
+<p>Innovative office design promoting productivity and creativity.</p>
+</div>
+</div>
+</section>
+
+<section id="contact" class="contact-us">
+<h2>Contact Us</h2>
+<p>Get in touch with us to discuss your next design project. Whether you're looking for a full home renovation or a single room makeover, we're here to help you every step of the way.</p>
+<p>Email: contact@nestory.com | Phone: +1 123-456-7890</p>
+<p>Or visit our office at 1234 Design Street, Interior City, Country.</p>
+</section>
+
+<footer>
+<p>© 2024 Nestory - All Rights Reserved</p>
+</footer>
+
+<script>
+let slideIndex = 0;
+let slides = document.getElementsByClassName("slides");
+let timer;
+showSlides();
+function showSlides() {
+for(let i = 0; i < slides.length; i++) {
+slides[i].style.opacity = 0;
+slides[i].style.zIndex = 1; 
+}
+slideIndex++;
+if (slideIndex > slides.length) { 
+slideIndex = 1; 
+}
+slides[slideIndex - 1].style.opacity = 1;
+slides[slideIndex - 1].style.zIndex = 2;
+timer = setTimeout(showSlides, 4000);s
+}
+
+function plusSlides(n) {
+clearTimeout(timer); 
+slideIndex += n;
+if (slideIndex > slides.length) { 
+slideIndex = 1; 
+}
+if (slideIndex < 1) { 
+slideIndex = slides.length; 
+}
+for (let i = 0; i < slides.length; i++) {
+slides[i].style.opacity = 0;
+slides[i].style.zIndex = 1;
+}
+slides[slideIndex - 1].style.opacity = 1;
+slides[slideIndex - 1].style.zIndex = 2;
+timer = setTimeout(showSlides, 4000); 
+}
+
+document.querySelectorAll('.nav-links a').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault(); 
+const targetId = this.getAttribute('href');
+if (targetId === "#") {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+ });
+} else {
+const targetElement = document.querySelector(targetId); 
+targetElement.scrollIntoView({
+behavior: 'smooth'
+});
+}
+});
+});
+</script>
+
+</body>
+</html>
